@@ -1,0 +1,30 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div class="container">
+<h1 class="text-center">Post Detail</h1>
+<div class="col-md-6">
+<img src="{{object.image.url}}" alt="" style="width: 300px; height: 300px; "class="rounded img-thumbnail">
+</div>
+<div class="col-md-8 offset-md-2">
+Title={{object.title}} <br>
+
+{% if request.user==object.user %}
+<a href="/tution/edit/{{object.id}}/">Edit</a> <br>
+<a href="/tution/delete/{{object.id}}/">Delete</a> <br>
+{% endif %}
+Subject= {% for s in object.subject.all %}
+{{s.name}}
+{% endfor %}
+Class= {% for s in object.class_in.all %}
+{{s.name}}
+{% endfor %}
+category={{object.category}} <br>
+salary={{object.salary}} <br>
+medium={{object.medium}} <br>
+created_at={{object.created_at}} <br>
+available={% if object.available %} Yes {% else %} No{% endif %}
+<p>Details: {{object.Details}}</p>
+</div>
+</div>
+{% endblock body %}
+

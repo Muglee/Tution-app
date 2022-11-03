@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="user.userprofile.image.url" class="w-50" alt="">
+        </div>
+        <div class="col">
+            Name={{user.username}} <br>
+            blood_group={{user.UserProfile.blood_group}} <br>
+        </div>
+    </div>
+</div>
+{% endblock body %}
